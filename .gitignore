@@ -1,0 +1,5 @@
+*.pyc
+*.db
+.pbundle
+node_modules/
+mysite/site_media/media

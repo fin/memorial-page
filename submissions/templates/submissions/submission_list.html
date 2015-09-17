@@ -1,0 +1,9 @@
+{% extends "site_base.html" %}
+
+{% block body %}
+    {% for submission in object_list %}
+        <li>{{ submission.user}}</li>
+    {% endfor %}
+
+    {% if user.is_authenticated %}<a href="{% url "submit" %}">add!</a>{% endif %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "site_base.html" %}
+
+{% load staticfiles %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/dropzone.css' %}" />
+{% endblock %}
+
+
+{% block body %}
+
+{% include "_header.html" %}
+
+<script src="{% static 'js/dropzone.js' %}"></script>
+<script>
+Dropzone.options.dropzoneFiles = {};
+Dropzone.options.dropzoneFiles['maxFilesize'] = 2;
+Dropzone.options.dropzoneFiles['acceptedFiles'] = 'image/*';
+Dropzone.options.dropzoneFiles['dictDefaultMessage'] = 'Drag & Drop or Click to add Images';
+Dropzone.options.dropzoneFiles['dictRemoveFile'] = 'X';
+Dropzone.options.dropzoneFiles['addRemoveLinks'] = true;
+Dropzone.options.dropzoneFiles['addedfile'] = function(file, div) {
+  console.log(this,file);
+  this.defaultOptions.addedfile.call(this, file, div);
+  if(file.status==Dropzone.SUCCESS) {
+    this.defaultOptions.success.call(this, file, div);
+  }
+};
+Dropzone.options.dropzoneFiles['removedfile'] = function(file) {
+  $.post(file.removeLink, {});
+  file.previewElement.parentNode.removeChild(file.previewElement);
+  console.log(file);
+  return true;
+};
+Dropzone.options.dropzoneFiles['success'] = function(file, response) {
+  file.removeLink = response.removeLink;
+};
+Dropzone.options.dropzoneFiles['init'] = function() {
+  var file = null;
+  {% for file in form.instance.current_files %}
+    file = {
+      filename: "{{ file.file.name|escapejs }}",
+      name: "{{ file.file.name|escapejs }}",
+      size: "{{ file.file.size}}",
+      type: "image/jpeg",
+      removeLink: "{% url 'jfu-delete' pk=file.pk %}",
+      status: Dropzone.SUCCESS,
+      upload: {progress: 100, bytesSent: {{file.file.size}}, total: {{file.file.size}}},
+      accepted: true
+    };
+    this.options.addedfile.call(this, file);
+    this.options.thumbnail.call(this,file, '{{file.file.url}}');
+    this.options.complete.call(this,file, file.upload.progress, file.upload.bytesSent);
+    this.files.push(file);
+  {% endfor %}
+}
+</script>
+
+<div class="row">
+  <div class="col-md-6">
+    <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
+      {% csrf_token %}
+      <div class="fallback">
+        <input name="file" type="file" multiple />
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    links &amp; videos
+  </div>
+</div>
+
+<form method="POST">{{form}}
+  <input type="submit" value="save"/>
+  {% csrf_token %}
+</form>
+{% endblock %}
