@@ -3,13 +3,14 @@
 collaborative online condolence book, or something. help me!
 
 TODO:
-- inline user signup (during submission, with email plus name - no
-  usernames)
-- video and link submissions
-- pretty design
+- success message after successful content submission.
+- video and link submissions: thought is to just have a text field with
+  a link per line and run it through embedly
+- prettier design
 
 DONE:
 - relatively painless image upload with dropzone.js
+- user-less content submissions and image upload, via session storage.
 
 
 ```
