@@ -19,6 +19,9 @@ class Submission(models.Model):
     def current_files(self):
         return [x for x in self.image_set.all() if x.file]
 
+    def __unicode__(self):
+        return u'Submission by %s (%s)' % (self.user.email or self.user.username, (self.text or '')[:10],)
+
 class Image(models.Model):
     submission = models.ForeignKey(Submission)
     file = models.ImageField()

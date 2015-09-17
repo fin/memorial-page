@@ -135,6 +135,7 @@ INSTALLED_APPS = [
     "pinax.eventlog",
     "wiki",
 
+
     # project
     "submissions",
     "mysite",

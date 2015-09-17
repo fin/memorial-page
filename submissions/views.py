@@ -7,19 +7,36 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from models import Submission, Image, Link
+from django.forms.models import modelform_factory
+from django import forms
+from datetime import datetime
 
 
 class SubmissionListView(ListView):
     queryset = Submission.objects.filter(accepted_at__isnull=False)
 
 
+
 class SubmissionUpdateView(UpdateView):
     model = Submission
-    fields = ['text','message']
+    form_class = modelform_factory(Submission,
+            widgets={'message': forms.Textarea(attrs={'rows':2, 'cols':15}),
+                     'text': forms.Textarea(attrs={'rows':4, 'cols':15})},
+            fields = ['text','message']
+            )
 
     def get_queryset(self):
         base_qs = super(SubmissionUpdateView, self).get_queryset()
         return base_qs.filter(user=self.request.user, submitted_at__isnull=True)
+
+    def form_valid(self, form):
+        self.object = form.save()
+        if 'send' in self.request.POST:
+            self.object.submitted_at = datetime.now()
+            self.object.save()
+            return HttpResponseRedirect('/')
+        else:
+            return super(SubmissionUpdateView, self).form_valid(form)
 
 
 def submission(request):

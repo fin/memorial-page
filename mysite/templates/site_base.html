@@ -20,6 +20,22 @@
 {% endblock %}
 
 {% block topbar_base %}
+  <div class="container">
+    <div class="well">
+      <h1>Mihi stories</h1>
+      <div class="row" style="min-height: 150px;">
+        <div class="col-sm-5">
+          german text
+        </div>
+        <div class="col-sm-2">
+          <img src="{% static 'images/mihi.gif' %}" class="img-responsive" style="max-width: 50%; text-align: center; margin-left: auto; margin-right: auto;"/>
+        </div>
+        <div class="col-sm-5">
+          english text
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 
@@ -31,3 +47,7 @@
     {% analytics %}
     {% block extra_body %}{% endblock %}
 {% endblock %}
+
+
+
+

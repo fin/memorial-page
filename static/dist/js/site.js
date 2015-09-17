@@ -52,8 +52,9 @@
 	__webpack_require__(87);
 
 	__webpack_require__(100);
+	__webpack_require__(116);
 
-	__webpack_require__(115);
+	__webpack_require__(117);
 
 	var fileupload = function fileupload() {
 	    $('.fileupload').each(function () {
@@ -11319,7 +11320,14 @@
 
 /***/ },
 
-/***/ 115:
+/***/ 116:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "/images/mihi.gif"
+
+/***/ },
+
+/***/ 117:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
@@ -11346,7 +11354,7 @@
 	        define(['jquery', 'jquery.ui.widget'], factory);
 	    } else if (true) {
 	        // Node/CommonJS:
-	        factory(__webpack_require__(86), __webpack_require__(116));
+	        factory(__webpack_require__(86), __webpack_require__(118));
 	    } else {
 	        // Browser globals:
 	        factory(window.jQuery);
@@ -12651,7 +12659,7 @@
 
 /***/ },
 
-/***/ 116:
+/***/ 118:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery UI - v1.11.4+CommonJS - 2015-08-28

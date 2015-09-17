@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 
 {% load staticfiles %}
+{% load bootstrap %}
 
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'css/dropzone.css' %}" />
@@ -56,22 +57,31 @@ Dropzone.options.dropzoneFiles['init'] = function() {
 }
 </script>
 
-<div class="row">
-  <div class="col-md-6">
-    <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
-      {% csrf_token %}
-      <div class="fallback">
-        <input name="file" type="file" multiple />
-      </div>
-    </form>
+<div class="thecontent">
+  <h2>New Submission</h2>
+  <p>Upload files, create Text, feel free to save before submitting.</p>
+  <p>Entries are be moderated, so it will be a while before they show up on the site</p>
+  <hr />
+  <div class="row">
+    <div class="col-sm-6">
+      <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
+        {% csrf_token %}
+        <div class="fallback">
+          <input name="file" type="file" multiple />
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      links &amp; videos
+    </div>
   </div>
-  <div class="col-md-6">
-    links &amp; videos
-  </div>
-</div>
 
-<form method="POST">{{form}}
-  <input type="submit" value="save"/>
-  {% csrf_token %}
-</form>
+  <form method="POST">{{form|bootstrap_horizontal}}
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" name="save" value="Entwurf speichern"/>
+      <input type="submit" class="btn btn-success" name="send" value="Abschicken (final)"/>
+    </div>
+    {% csrf_token %}
+  </form>
+</div>
 {% endblock %}
