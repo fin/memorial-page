@@ -22,7 +22,7 @@
 {% block topbar_base %}
   <div class="container">
     <div class="well">
-      <h1>Mihi stories</h1>
+      <h1><a href="/">Mihi stories</a></h1>
       <div class="row" style="min-height: 150px;">
         <div class="col-sm-5">
           german text
@@ -33,6 +33,12 @@
         <div class="col-sm-5">
           english text
         </div>
+      </div>
+      <div class="row">
+        <p class="text-center">
+          <br />
+          <a href="{% url 'submit' %}" class="btn btn-primary">Submit your own</a>
+        </p>
       </div>
     </div>
   </div>

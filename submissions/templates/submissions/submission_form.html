@@ -63,7 +63,8 @@ Dropzone.options.dropzoneFiles['init'] = function() {
   <p>Entries are be moderated, so it will be a while before they show up on the site</p>
   <hr />
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-8 col-md-6">
+      <h6>Pictures</h6>
       <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
         {% csrf_token %}
         <div class="fallback">
@@ -71,17 +72,22 @@ Dropzone.options.dropzoneFiles['init'] = function() {
         </div>
       </form>
     </div>
-    <div class="col-sm-6">
-      links &amp; videos
+    <div class="col-sm-4 col-md-6">
+      <h6>Links &amp; Videos</h6>
+      [TODO]
     </div>
   </div>
 
-  <form method="POST">{{form|bootstrap_horizontal}}
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" name="save" value="Entwurf speichern"/>
-      <input type="submit" class="btn btn-success" name="send" value="Abschicken (final)"/>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <form method="POST">{{form|bootstrap_horizontal}}
+        <div class="form-group text-center">
+          <input type="submit" class="btn btn-primary" name="save" value="Entwurf speichern"/>
+          <input type="submit" class="btn btn-success" name="send" value="Abschicken (final)"/>
+        </div>
+        {% csrf_token %}
+      </form>
     </div>
-    {% csrf_token %}
-  </form>
+  </div>
 </div>
 {% endblock %}

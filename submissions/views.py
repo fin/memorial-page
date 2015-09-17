@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from models import Submission, Image, Link
 from django.forms.models import modelform_factory
+from django.forms.util import ErrorList
 from django import forms
 from datetime import datetime
 
@@ -22,25 +23,40 @@ class SubmissionUpdateView(UpdateView):
     form_class = modelform_factory(Submission,
             widgets={'message': forms.Textarea(attrs={'rows':2, 'cols':15}),
                      'text': forms.Textarea(attrs={'rows':4, 'cols':15})},
-            fields = ['text','message']
+            fields = ['text','message','name','email',]
             )
 
     def get_queryset(self):
         base_qs = super(SubmissionUpdateView, self).get_queryset()
-        return base_qs.filter(user=self.request.user, submitted_at__isnull=True)
+
+        sid = self.request.session.get('submission_id',None)
+        if not sid:
+            sid = Submission.objects.create().pk
+        self.request.session['submission_id'] = sid
+        return base_qs.filter(pk=sid, submitted_at__isnull=True)
 
     def form_valid(self, form):
-        self.object = form.save()
         if 'send' in self.request.POST:
-            self.object.submitted_at = datetime.now()
+            self.object = form.save()
+            if self.object.name:
+                self.object.submitted_at = datetime.now()
             self.object.save()
-            return HttpResponseRedirect('/')
-        else:
-            return super(SubmissionUpdateView, self).form_valid(form)
+            if self.object.name:
+                return HttpResponseRedirect('/')
+            else:
+                error = form._errors.setdefault('name', ErrorList())
+                error.append('Needed for submission!')
+                return super(SubmissionUpdateView, self).form_invalid(form)
+
+        return super(SubmissionUpdateView, self).form_valid(form)
 
 
 def submission(request):
-    s, created = Submission.objects.get_or_create(user=request.user,
+    sid = request.session.get('submission_id',None)
+    if not sid or Submission.objects.get(pk=sid).submitted_at:
+        sid = Submission.objects.create().pk
+    request.session['submission_id'] = sid
+    s, created = Submission.objects.get_or_create(pk=sid,
         submitted_at__isnull=True)
     return HttpResponseRedirect(s.get_absolute_url())
 
@@ -62,7 +78,7 @@ def delete_image(request, pk):
     success = True
     try:
         instance = Image.objects.get( pk = pk )
-        if instance.submission.user == request.user:
+        if request.session['submission_id']==instance.submission.pk:
             os.unlink( instance.file.path )
             instance.delete()
         else:

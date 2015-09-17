@@ -4,6 +4,9 @@
 
 {% block body %}
     {% for submission in object_list %}
+    {% if not forloop.first %}
+    <p class="text-center"><span class="glyphicon glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></p>
+    {% endif %}
     <div class="submission">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 well">
@@ -27,11 +30,9 @@
       <div class="row">
         <div class="col-sm-4 col-sm-offset-4 well">
           {% if submission.text %}{{ submission.text | markdown }}{% endif %}
-          <p class="by">— {{submission.user}}</p>
+          <p class="by">— {{submission.name}}</p>
         </div>
       </div>
     </div>
     {% endfor %}
-
-    {% if user.is_authenticated %}<a href="{% url "submit" %}">add!</a>{% endif %}
 {% endblock %}
