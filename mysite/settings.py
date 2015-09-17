@@ -134,6 +134,7 @@ INSTALLED_APPS = [
     "metron",
     "pinax.eventlog",
     "wiki",
+    "django_markdown2",
 
 
     # project
