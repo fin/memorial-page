@@ -8808,6 +8808,62 @@ body {
   position: relative;
   background: url(/site_media/static/images/greyfloral.png);
 }
+.well,
+.thecontent {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  box-shadow: none;
+}
+body .dropzone {
+  margin-bottom: 1em;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.form-group {
+  clear: left;
+  padding-top: 10px;
+}
+h1,
+h2 {
+  text-align: center;
+  font-weight: normal;
+  margin-top: 0;
+}
+.thing {
+  width: 100%;
+  margin-bottom: 5px;
+  height: 350px;
+  overflow: hidden;
+}
+.thing .img-responsive {
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+}
+.carousel img {
+  max-height: 350px;
+}
+.submission .row > div {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.submission .well {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.dropzone .dz-preview .dz-image img {
+  max-width: 100%;
+}
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  margin-left: auto;
+  margin-right: auto;
+}
 section {
   padding: 20px 0px;
 }
