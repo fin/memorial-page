@@ -8872,3 +8872,42 @@ h1 a {
 label[for="id_message"] {
   font-weight: normal;
 }
+@media (min-width: 800px) {
+  @font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(/site_media/static/fonts/FiraSans-Medium.ttf?00409d04487812f565e1f14adae6cd61) format('truetype');
+  }
+  h1 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url(/site_media/static/fonts/PTSans-Regular.ttf?3db236df54acdce971747e795e5db777) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('PT Sans Bold'), local('PTSans-Bold'), url(/site_media/static/fonts/PTSans-Bold.ttf?3ead6b40159b96c82fd7fbaef1e0b6e9) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('PT Sans Italic'), local('PTSans-Italic'), url(/site_media/static/fonts/PTSans-Italic.ttf?a5704710fc8bf6f39e8b247068ffb111) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url(/site_media/static/fonts/PTSans-BoldItalic.ttf?2395f9d8c6962eafa5385335e137245d) format('truetype');
+  }
+  body {
+    font-family: "PT Sans", sans-serif;
+  }
+}

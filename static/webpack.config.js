@@ -27,7 +27,7 @@ module.exports = {
             {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 include: [
-                    path.resolve(__dirname, "/src/fonts"),
+                    path.resolve(__dirname, "src/fonts"),
                     path.resolve(__dirname, "../node_modules")
                 ],
                 loader: "file-loader?name=/fonts/[name].[ext]?[hash]"

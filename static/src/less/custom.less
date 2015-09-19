@@ -79,3 +79,44 @@ h1 a {
 label[for="id_message"] {
   font-weight: normal;
 }
+
+@media (min-width: 800px) {
+  @font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(../fonts/FiraSans-Medium.ttf) format('truetype');
+  }
+  h1 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url(../fonts/PTSans-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('PT Sans Bold'), local('PTSans-Bold'), url(../fonts/PTSans-Bold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('PT Sans Italic'), local('PTSans-Italic'), url(../fonts/PTSans-Italic.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url(../fonts/PTSans-BoldItalic.ttf) format('truetype');
+  }
+  body {
+      font-family: "PT Sans", sans-serif;
+  }
+}
+
