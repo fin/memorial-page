@@ -6,9 +6,9 @@ class Submission(models.Model):
     submitted_at = models.DateTimeField(null=True, blank=True)
     accepted_at = models.DateTimeField(null=True, blank=True)
     accepted_by = models.ForeignKey(User, null=True, blank=True, related_name='accepted_submissions')
-    message = models.TextField(blank=True, null=True, help_text='A private message to partners and family')
+    message = models.TextField(blank=True, null=True, help_text='If you\'d like ,leave a private message to partner and family (not public)')
     name = models.CharField(max_length=200,blank=True, null=True, help_text="Name, Location would be ideal")
-    email = models.CharField(max_length=200,blank=True, null=True, help_text="Give us a way to contact you")
+    email = models.CharField(max_length=200,blank=True, null=True, help_text="Give us a way to contact you (not public)")
 
     text = models.TextField(blank=True, help_text='A story about how he touched you, or anything else you want to share.')
 
