@@ -6502,9 +6502,7 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after,
-.feature-columns:before,
-.feature-columns:after {
+.modal-footer:after {
   content: " ";
   display: table;
 }
@@ -6522,8 +6520,7 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after,
-.feature-columns:after {
+.modal-footer:after {
   clear: both;
 }
 .center-block {
@@ -8864,42 +8861,14 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
-section {
-  padding: 20px 0px;
+h1 a {
+  color: #305880;
+  font-weight: bold;
 }
-.modal form {
-  margin-bottom: 0px;
+.btn-primary {
+  background-color: #2B547D;
+  border-color: #173C62;
 }
-footer {
-  padding-bottom: 20px;
-}
-p.login-signup {
-  margin-top: 20px;
-}
-.feature-columns {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.feature-columns > div {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  text-align: center;
-  margin: 2em 0;
-}
-.feature-columns > div i.fa {
-  margin-bottom: 0.2em;
-}
-@media (min-width: 768px) {
-  .feature-columns > div {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-.page img {
-  max-width: 100%;
-}
-.wiki-edit textarea {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+label[for="id_message"] {
+  font-weight: normal;
 }
