@@ -130,6 +130,7 @@ INSTALLED_APPS = [
     "pinax_theme_bootstrap",
 
     # external
+    "django_object_actions",
     "account",
     "metron",
     "pinax.eventlog",
