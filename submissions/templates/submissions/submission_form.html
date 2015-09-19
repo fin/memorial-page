@@ -80,8 +80,9 @@ Dropzone.options.dropzoneFiles['init'] = function() {
 
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <form method="POST">{{form|bootstrap_horizontal}}
-        <div class="form-group text-center">
+      <form method="POST" class="form-horizontal">
+        {{form|bootstrap_horizontal}}
+        <div class="pull-right">
           <input type="submit" class="btn btn-primary" name="save" value="Entwurf speichern"/>
           <input type="submit" class="btn btn-success" name="send" value="Abschicken (final)"/>
         </div>
