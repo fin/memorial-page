@@ -11,6 +11,7 @@ from django.forms.models import modelform_factory
 from django.forms.util import ErrorList
 from django import forms
 from datetime import datetime
+from django.contrib import messages
 
 
 class SubmissionListView(ListView):
@@ -41,12 +42,17 @@ class SubmissionUpdateView(UpdateView):
             if self.object.name:
                 self.object.submitted_at = datetime.now()
             self.object.save()
-            if self.object.name:
+            if self.object.name and (self.object.text or self.object.current_files):
+                messages.success(self.request, 'Thank you. A moderator will publish your submission as soon as possible!')
                 return HttpResponseRedirect('/')
             else:
                 error = form._errors.setdefault('name', ErrorList())
                 error.append('Needed for submission!')
+                if not self.object.name and not self.object.current_files:
+                    error = form._errors.setdefault('text', ErrorList())
+                    error.append('Please upload Images or add Text to submit.')
                 return super(SubmissionUpdateView, self).form_invalid(form)
+
 
         return super(SubmissionUpdateView, self).form_valid(form)
 
