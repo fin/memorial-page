@@ -3,3 +3,4 @@
 .pbundle
 node_modules/
 mysite/site_media/media
+.DS_Store

@@ -29,5 +29,6 @@ class Image(models.Model):
 
 class Link(models.Model):
     submission = models.ForeignKey(Submission)
-    link_to = models.TextField()
+    link = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True)
 
