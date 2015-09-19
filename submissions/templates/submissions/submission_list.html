@@ -10,7 +10,7 @@
     <div class="submission">
       <div class="row">
         {% if submission.current_files %}
-        <div class="col-sm-8 col-sm-offset-2 well">
+        <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 well">
           <div class="carousel slide" data-ride="carousel" id="carousel-{{submission.pk}}">
             <div class="carousel-inner" role="listbox">
               {% for image in submission.current_files %}
@@ -30,7 +30,7 @@
         {% endif %}
       </div>
       <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 well">
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 well">
           {% if submission.text %}{{ submission.text | markdown }}{% endif %}
           <p class="by">— {{submission.name}}</p>
         </div>
