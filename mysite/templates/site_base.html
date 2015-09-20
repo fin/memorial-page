@@ -1,7 +1,6 @@
 {% extends "theme_bootstrap/base.html" %}
 
 {% load staticfiles %}
-{% load metron_tags %}
 {% load i18n %}
 
 
@@ -50,11 +49,6 @@
 
 {% block scripts %}
     {% include "_scripts.html" %}
-{% endblock %}
-
-{% block extra_body_base %}
-    {% analytics %}
-    {% block extra_body %}{% endblock %}
 {% endblock %}
 
 

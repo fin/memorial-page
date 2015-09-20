@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import micawber
 
 class Submission(models.Model):
     date = models.DateTimeField(auto_now_add=True)
@@ -33,4 +34,14 @@ class Link(models.Model):
     submission = models.ForeignKey(Submission)
     link = models.CharField(max_length=255)
     description = models.CharField(max_length=255, null=True)
+
+    embed = models.TextField(null=True,blank=True)
+
+    def save(self, *args, **kwargs):
+        providers = micawber.bootstrap_basic()
+        try:
+            self.embed = providers.request(self.link)['html']
+        except micawber.ProviderException,e:
+            self.embed = None
+        super(Link,self).save(*args, **kwargs)
 

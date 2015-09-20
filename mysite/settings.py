@@ -132,9 +132,7 @@ INSTALLED_APPS = [
     # external
     "django_object_actions",
     "account",
-    "metron",
     "pinax.eventlog",
-    "wiki",
     "django_markdown2",
 
 

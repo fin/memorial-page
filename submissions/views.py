@@ -51,7 +51,7 @@ class SubmissionForm(ModelForm):
 
 
 class SubmissionListView(ListView):
-    queryset = Submission.objects.filter(accepted_at__isnull=False)
+    queryset = Submission.objects.filter(accepted_at__isnull=False).order_by('-accepted_at')
 
 class SubmissionUpdateView(UpdateWithInlinesView):
     model = Submission

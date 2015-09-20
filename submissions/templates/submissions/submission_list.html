@@ -27,6 +27,29 @@
               </a>
             </div>
           {% endif %}
+          {% if submission.link_set.all %}
+          {% for link in submission.link_set.all %}
+            <div class="row-flexible">
+              <div class="col-xs-12">
+                <div class="panel panel-default">
+                  {% if link.embed %}
+                    <div class="panel-content embed-responsive embed-responsive-16by9">
+                      {{link.embed|safe}}
+                    </div>
+                    <div class="panel-footer">
+                      {{link.description}}
+                    </div>
+                  {% else %}
+                    <div class="panel-footer">
+                      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                      <a href="{{link.link}}" target="_blank">{{link.description}}</a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          {% endif %}
           <div class="text">
             {% if submission.text %}{{ submission.text | markdown }}{% endif %}
             <p class="by">— {{submission.name}}</p>
