@@ -11,9 +11,9 @@ DONE:
 - success message after successful content submission.
 - prettier design
 - video and link submissions
+- display links and videos
 
 TODO:
-- display links and videos
 - print stylesheet
 
 NICE TO HAVE:
