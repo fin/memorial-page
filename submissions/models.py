@@ -12,7 +12,7 @@ class Submission(models.Model):
             help_text="<b>Name, Location</b> would be ideal")
     email = models.CharField(max_length=200,blank=True, null=True, help_text="Give us a way to contact you (not public)")
 
-    text = models.TextField(blank=True, help_text='A story about how he touched you, or anything else you want to share. <small>(markdown formatting available)</small>')
+    text = models.TextField(blank=True, help_text='A story about how he touched your life, or anything else you want to share. <small>(markdown formatting available)</small>')
 
     @models.permalink
     def get_absolute_url(self):
