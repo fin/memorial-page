@@ -12,6 +12,7 @@ DONE:
 - prettier design
 - video and link submissions
 - display links and videos
+- caching of main page
 
 TODO:
 - print stylesheet
@@ -19,7 +20,6 @@ TODO:
 NICE TO HAVE:
 - prettier slider, maybe multiple images side-by-side (move away from
   bootstrap carousel for this)
-- caching of main page
 
 MODERATION
 ==========
