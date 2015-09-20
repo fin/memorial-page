@@ -1113,6 +1113,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .img-rounded {
   border-radius: 6px;
@@ -6502,9 +6504,7 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after,
-.feature-columns:before,
-.feature-columns:after {
+.modal-footer:after {
   content: " ";
   display: table;
 }
@@ -6522,8 +6522,7 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after,
-.feature-columns:after {
+.modal-footer:after {
   clear: both;
 }
 .center-block {
@@ -8836,10 +8835,16 @@ h2 {
   height: 350px;
   overflow: hidden;
 }
-.thing .img-responsive {
-  max-height: 100%;
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
   margin-left: auto;
   margin-right: auto;
+}
+.thing .img-responsive {
+  max-height: 100%;
   vertical-align: middle;
 }
 .carousel img {
@@ -8864,42 +8869,59 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
-section {
-  padding: 20px 0px;
+h1 a {
+  color: #305880;
+  font-weight: bold;
 }
-.modal form {
-  margin-bottom: 0px;
+.btn-primary {
+  background-color: #2B547D;
+  border-color: #173C62;
 }
-footer {
-  padding-bottom: 20px;
+label[for="id_message"],
+label[for="id_email"] {
+  font-weight: normal;
 }
-p.login-signup {
-  margin-top: 20px;
-}
-.feature-columns {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.feature-columns > div {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  text-align: center;
-  margin: 2em 0;
-}
-.feature-columns > div i.fa {
-  margin-bottom: 0.2em;
-}
-@media (min-width: 768px) {
-  .feature-columns > div {
-    float: left;
-    width: 33.33333333%;
+@media (min-width: 800px) {
+  @font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(/site_media/static/fonts/FiraSans-Medium.ttf?00409d04487812f565e1f14adae6cd61) format('truetype');
   }
-}
-.page img {
-  max-width: 100%;
-}
-.wiki-edit textarea {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url(/site_media/static/fonts/PTSans-Regular.ttf?3db236df54acdce971747e795e5db777) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('PT Sans Bold'), local('PTSans-Bold'), url(/site_media/static/fonts/PTSans-Bold.ttf?3ead6b40159b96c82fd7fbaef1e0b6e9) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('PT Sans Italic'), local('PTSans-Italic'), url(/site_media/static/fonts/PTSans-Italic.ttf?a5704710fc8bf6f39e8b247068ffb111) format('truetype');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url(/site_media/static/fonts/PTSans-BoldItalic.ttf?2395f9d8c6962eafa5385335e137245d) format('truetype');
+  }
+  body {
+    font-family: "PT Sans", sans-serif;
+  }
 }
