@@ -1113,6 +1113,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .img-rounded {
   border-radius: 6px;
@@ -8833,10 +8835,16 @@ h2 {
   height: 350px;
   overflow: hidden;
 }
-.thing .img-responsive {
-  max-height: 100%;
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
   margin-left: auto;
   margin-right: auto;
+}
+.thing .img-responsive {
+  max-height: 100%;
   vertical-align: middle;
 }
 .carousel img {
@@ -8880,7 +8888,12 @@ label[for="id_email"] {
     font-weight: 500;
     src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(/site_media/static/fonts/FiraSans-Medium.ttf?00409d04487812f565e1f14adae6cd61) format('truetype');
   }
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Fira Sans", sans-serif;
     font-weight: 500;
   }
