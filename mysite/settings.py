@@ -6,6 +6,7 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
+ALLOWED_HOSTS = ['127.0.0.1']
 
 DATABASES = {
     "default": {
@@ -14,7 +15,6 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
