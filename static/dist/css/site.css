@@ -8869,7 +8869,8 @@ h1 a {
   background-color: #2B547D;
   border-color: #173C62;
 }
-label[for="id_message"] {
+label[for="id_message"],
+label[for="id_email"] {
   font-weight: normal;
 }
 @media (min-width: 800px) {

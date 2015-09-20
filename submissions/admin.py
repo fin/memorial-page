@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Submission, Image
+from models import Submission, Image, Link
 from django.core.exceptions import PermissionDenied
 from django_object_actions import DjangoObjectActions
 from django.contrib.admin import SimpleListFilter
@@ -22,9 +22,11 @@ class ModerationFilter(SimpleListFilter):
 
 class ImageInlineAdmin(admin.TabularInline):
     model = Image
+class LinkInlineAdmin(admin.TabularInline):
+    model = Link
 
 class SubmissionAdmin(DjangoObjectActions, admin.ModelAdmin):
-    inlines = [ImageInlineAdmin]
+    inlines = [ImageInlineAdmin,LinkInlineAdmin]
 
     actions = ['approve']
     list_filter = ('accepted_at',ModerationFilter)

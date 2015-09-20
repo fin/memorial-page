@@ -58,13 +58,20 @@ Dropzone.options.dropzoneFiles['init'] = function() {
 </script>
 
 <div class="thecontent well">
-  <h2>New Submission</h2>
-  <p>Upload files, create Text, feel free to save before submitting.</p>
-  <p>Entries are be moderated, so it will be a while before they show up on the site</p>
+  <h2>Your Submission</h2>
+  {% if form.instance.submitted_at %}
+    <div class="alert alert-info">
+      You have submitted this! The moderation team will publish it shortly.<br />
+      You can still change this until you navigate away from this page.
+    </div>
+  {% else %}
+    <p>Upload files, create Text, feel free to save before submitting.</p>
+    <p>Entries are be moderated, so it will be a while before they show up on the site</p>
+  {% endif %}
   <hr />
   <div class="row">
-    <div class="col-sm-8 col-md-6">
-      <h6>Pictures</h6>
+    <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <label>Pictures</label>
       <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
         {% csrf_token %}
         <div class="fallback">
@@ -72,23 +79,34 @@ Dropzone.options.dropzoneFiles['init'] = function() {
         </div>
       </form>
     </div>
-    <div class="col-sm-4 col-md-6">
-      <h6>Links &amp; Videos</h6>
-      [TODO]
-    </div>
   </div>
-
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <form method="POST" class="form-horizontal">
+  <form method="POST">
+    <div class="row">
+      <div class="col-md-6" class="form-horizontal">
         {{form|bootstrap_horizontal}}
-        <div class="pull-right">
+        {% csrf_token %}
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <label>Links &amp; Videos</label>
+        {% for links_formset in inlines %}
+          {{links_formset.management_form}}
+          {% for inline in links_formset %}
+            <div class="form-inline">
+              {{inline|bootstrap}}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        <p class="small"><br />Vimeo and Youtube links will be embedded, like pictures</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <span>
           <input type="submit" class="btn btn-primary" name="save" value="Entwurf speichern"/>
           <input type="submit" class="btn btn-success" name="send" value="Abschicken (final)"/>
-        </div>
-        {% csrf_token %}
-      </form>
+        </span>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 {% endblock %}
