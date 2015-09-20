@@ -8807,6 +8807,9 @@ body {
   position: relative;
   background: url(/site_media/static/images/greyfloral.png);
 }
+.well.header {
+  background: none;
+}
 div.text {
   max-width: 32em;
   margin-left: auto;
