@@ -8807,6 +8807,16 @@ body {
   position: relative;
   background: url(/site_media/static/images/greyfloral.png);
 }
+div.text {
+  max-width: 32em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+.divider {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
 .well,
 .thecontent {
   margin-top: 20px;
