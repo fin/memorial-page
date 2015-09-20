@@ -9,11 +9,11 @@ DONE:
 - non-manual approval process: admin filter for submitted but not
   approved messages, one-button approval, image preview in admin
 - success message after successful content submission.
+- prettier design
+- video and link submissions
 
 TODO:
-- video and link submissions: thought is to just have a text field with
-  a link per line and run it through embedly
-- prettier design
+- display links and videos
 - print stylesheet
 
 NICE TO HAVE:

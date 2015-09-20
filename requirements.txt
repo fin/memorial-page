@@ -10,3 +10,4 @@ django-bootstrap-form
 django-markdown2
 django-object-actions
 django-extra-views
+micawber
