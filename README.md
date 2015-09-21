@@ -27,10 +27,14 @@ MODERATION
 ==========
 
 Create Superuser
-```python manage.py createsuperuser```
+```
+python manage.py createsuperuser
+```
 
 Visit
-```/admin/submissions/submission/?accepted=sent_not_accepted```
+```
+/admin/submissions/submission/?accepted=sent_not_accepted
+```
 
 Detail pages have an "accept" button, if not acceptable then delete
 
