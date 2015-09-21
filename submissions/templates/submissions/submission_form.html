@@ -71,7 +71,7 @@ Dropzone.options.dropzoneFiles['init'] = function() {
   <hr />
   <div class="row">
     <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      <label>Pictures</label>
+      <label>Pictures <small style="font-weight: normal">File size: up to 2MB</small></label>
       <form action="{% url 'jfu-upload' pk=form.instance.pk %}" method="POST" class="dropzone" id="dropzone-files">
         {% csrf_token %}
         <div class="fallback">
