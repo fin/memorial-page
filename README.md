@@ -1,6 +1,7 @@
-# goodbye mihi
+The Software behind ```http://mihi.lo-res.org/```
 
-collaborative online condolence book, or something. help me!
+online condolence book
+======================
 
 DONE:
 - relatively painless image upload with dropzone.js
@@ -16,6 +17,7 @@ DONE:
 
 TODO:
 - print stylesheet
+- generalize for other people to use
 
 NICE TO HAVE:
 - prettier slider, maybe multiple images side-by-side (move away from
@@ -24,8 +26,12 @@ NICE TO HAVE:
 MODERATION
 ==========
 
-Create Superuser, visit
-/admin/submissions/submission/?accepted=sent_not_accepted
+Create Superuser
+```python manage.py createsuperuser```
+
+Visit
+```/admin/submissions/submission/?accepted=sent_not_accepted```
+
 Detail pages have an "accept" button, if not acceptable then delete
 
 
@@ -47,9 +53,11 @@ for development, use
 webpack --config webpack.config.js --watch
 ```
 
-
+RUNNING
+=======
 ```
 pip install -r requirements.txt
+./manage.py collectstatic --noinput
 ./manage.py migrate
 ./manage.py runserver
 ```
