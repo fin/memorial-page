@@ -26,7 +26,7 @@
         <div class="col-xs-4 text-center">
           <h4>Michael Bauer 1980–2015</h4>
           <p>Hier sammeln wir Geschichten über und Erinnerungen an einen lieben Menschen.</p>
-          <p><small><a href="https://www.facebook.com/events/963469953709452/" target="_blank">Party am 10.10. in Wien</a></small></p>
+          <p><small><a href="{% url 'donation' %}" target="_blank">Spenden</a></small></p>
         </div>
         <div class="col-xs-4">
           <img src="{% static 'images/mihi.gif' %}" class="img-responsive"/>
@@ -34,16 +34,13 @@
         <div class="col-xs-4 text-center">
           <h4>Michael Bauer 1980–2015</h4>
           <p>This is where we collect stories and memories of a great person.</p>
-          <p><small><a href="https://www.facebook.com/events/963469953709452/" target="_blank">Party on Oct 10. in Vienna</a></small></p>
+          <p><small><a href="{% url 'donation' %}" target="_blank">Donate</a></small></p>
         </div>
       </div>
       <div class="row">
         <p class="text-center">
           <br />
           <a href="{% url 'submit' %}" class="btn btn-primary">Submit Story or Pictures</a>
-          <br />
-          <br />
-          <a href="{% url 'donation' %}" class="btn btn-primary">Donations</a>
         </p>
       </div>
     </div>
