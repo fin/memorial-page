@@ -135,6 +135,8 @@ INSTALLED_APPS = [
     "pinax.eventlog",
     "django_markdown2",
 
+    "django_medusa",
+
 
     # project
     "submissions",
@@ -188,3 +190,12 @@ ACCOUNT_USE_AUTH_AUTHENTICATE = True
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
 ]
+
+
+
+MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+MEDUSA_DEPLOY_DIR = os.path.join(
+    PROJECT_DIR, '..', "_output"
+)
+
