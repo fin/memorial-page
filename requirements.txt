@@ -10,3 +10,4 @@ django-object-actions
 django-extra-views
 micawber
 gunicorn
+-e git:https://github.com/mtigas/django-medusa/tarball/master#egg=django-medusa
