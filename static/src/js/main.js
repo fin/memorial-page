@@ -3,7 +3,7 @@ window.jQuery = window.$ = require("jquery");
 require("bootstrap");
 
 require("../less/site.less");
-require("../images/mihi.gif");
+require("../images/person.png");
 
 require("imports?define=>false!blueimp-file-upload");
 
