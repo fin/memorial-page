@@ -10,7 +10,6 @@ urlpatterns = patterns(
     "",
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
-	url(r"^donate/", TemplateView.as_view(template_name='donation.html'), name='donation'),
     url(r"", include("submissions.urls")),
 )
 
