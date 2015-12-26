@@ -82,6 +82,8 @@ Copy ```mysite/templates/_person_header.html``` and ```mysite/templates/_footer.
 
 Change ```static/src/less/custom.less``` and ```static/src/images/background.png```to suit your needs (see ASSETS above for details).
 
+Add an image to ```static/src/images/picture.png``` (for example).
+
 
 DEPLOYING
 =========
