@@ -1,19 +1,22 @@
 import os
 
-
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
-BASE_DIR = PACKAGE_ROOT
-
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1']
-
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = "changeme"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "dev.db",
     }
 }
+DEBUG = True
+ALLOWED_HOSTS = ['127.0.0.1']
+
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = PACKAGE_ROOT
+
+
 
 
 # Local time zone for this installation. Choices can be found here:
@@ -73,8 +76,6 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = ")iaivt*vvolxa%qzmdmnde$nj@-%m!4!49lgd*y@-n4p^w8c@n"
 
 TEMPLATES = [
     {
@@ -174,7 +175,6 @@ FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
 
-WIKI_HOOKSET = "mysite.hooks.ProjectWikiHookset"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_OPEN_SIGNUP = True

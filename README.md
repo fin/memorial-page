@@ -3,17 +3,12 @@ The Software behind ```http://mihi.lo-res.org/```
 online condolence book
 ======================
 
-DONE:
+Features:
 - relatively painless image upload with dropzone.js
-- account-less content submissions and image upload, via session storage.
-- first non-stupid design approach
-- non-manual approval process: admin filter for submitted but not
-  approved messages, one-button approval, image preview in admin
-- success message after successful content submission.
-- prettier design
+- account-less content submissions and image upload, via django sessions
+- approval process: all content on the site needs to be approved by admins
 - video and link submissions
-- display links and videos
-- caching of main page
+- main page is cached by default
 
 TODO:
 - print stylesheet
@@ -28,12 +23,12 @@ MODERATION
 
 Create Superuser
 ```
-python manage.py createsuperuser
+    python manage.py createsuperuser
 ```
 
 Visit
 ```
-/admin/submissions/submission/?accepted=sent_not_accepted
+    /admin/submissions/submission/?accepted=sent_not_accepted
 ```
 
 Detail pages have an "accept" button, if not acceptable then delete
@@ -42,17 +37,20 @@ Detail pages have an "accept" button, if not acceptable then delete
 ASSETS
 ======
 
-This needs webpack, just ezec
+The canonical forms of assets are stored in the ```static``` directory to enable less->css compilation and js minification.
+This needs the ```webpack``` program, which needs to be installed using NPM (which has its own dependencies. This was in the app template originally used for this, so: sorry).
+
+Install all this by navigating to the project root directory and running
 ```
 npm install
 ```
 
-in the directory and run
+To recompile assets, navigate to the ```static``` directory and run
 ```
 webpack --config webpack.config.js
 ```
 
-for development, use
+For asset development, you can use webpack's folder watching feature
 ```
 webpack --config webpack.config.js --watch
 ```
@@ -65,3 +63,10 @@ pip install -r requirements.txt
 ./manage.py migrate
 ./manage.py runserver
 ```
+
+DEPLOYING
+=========
+
+Django deployment guides exist. Make sure to create a ```local_settings.py``` (possibly by copying settings.py), configuring a proper™ database™ and setting a new ```SECRET_KEY```.
+
+Let me know if you need help.
