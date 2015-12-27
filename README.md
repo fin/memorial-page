@@ -52,20 +52,22 @@ Install all this by navigating to the project root directory and running
 npm install
 ```
 
-To recompile assets, navigate to the ```static``` directory and run
+To recompile assets, make sure you've created the ```static/src/images/person.png``` file exists (you can just ```touch``` it for testing purposes) and run
 ```
-webpack --config webpack.config.js
+npm run-script build
 ```
 
-For asset development, you can use webpack's folder watching feature
+For asset development, run
 ```
-webpack --config webpack.config.js --watch
+npm run-script watch
 ```
 
 Read more in the ```static/STATIC_README.md``` file.
 
 RUNNING
 =======
+Make sure you have all requirements for the python ```pillow``` library installed.
+
 ```
 pip install -r requirements.txt
 ./manage.py collectstatic --noinput
@@ -82,7 +84,7 @@ Copy ```mysite/templates/_person_header.html``` and ```mysite/templates/_footer.
 
 Change ```static/src/less/custom.less``` and ```static/src/images/background.png```to suit your needs (see ASSETS above for details).
 
-Add an image to ```static/src/images/picture.png``` (for example).
+Add an image to ```static/src/images/person.png``` (for example).
 
 
 DEPLOYING
